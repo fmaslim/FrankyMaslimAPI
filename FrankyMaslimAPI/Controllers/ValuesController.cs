@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using FrankyMaslimAPI.Interfaces;
 using FrankyMaslimAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace FrankyMaslimAPI.Controllers
 {
@@ -38,14 +40,30 @@ namespace FrankyMaslimAPI.Controllers
 			return new string[] { "value1", "value2" };
 		}
 
-		[Route("api/Values/{name}")]
+		[Route("api/Values/{id}")]
 		[HttpGet]
-		public ActionResult Get(string name)
+		public ActionResult Get(int id)
 		{
-			var mainObject = Repo.GetMainRecord();
-			//mainObject.ToList().ForEach(item => item.Qualifications = Repo.GetQualificiationsByMainID(item.MainId));
+			try
+			{
+				var mainObject = Repo.GetMainRecord();
+				mainObject.ToList().ForEach(item => item.Qualifications = Repo.GetQualificationsByMainID(item.MainId));
 
-			return Ok(mainObject);
+				return Ok(mainObject);
+			}
+			catch(Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+
+		[Route("api/Values/Qualifications")]
+		[HttpGet]
+		public ActionResult GetQualifications()
+		{
+			var q = Repo.GetQualifications();
+
+			return Ok(q);
 		}
 
 		// GET api/values/5

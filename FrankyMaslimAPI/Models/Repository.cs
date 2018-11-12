@@ -30,9 +30,14 @@ namespace FrankyMaslimAPI.Models
 			return AzureDbContext.Main.ToList();
 		}
 
-		public IList<Qualifications> GetQualificiationsByMainID(int mainID)
+		public IList<Qualifications> GetQualificationsByMainID(int mainID)
 		{
 			return AzureDbContext.Qualifications.Where(item => item.MainId == mainID).ToList();
+		}
+
+		public IList<Qualifications> GetQualifications()
+		{
+			return AzureDbContext.Qualifications.ToList();
 		}
 	}
 }

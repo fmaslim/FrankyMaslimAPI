@@ -22,5 +22,10 @@ namespace FrankyMaslimAPI.Models
         public string Objective { get; set; }
 
         public ICollection<Qualifications> Qualifications { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return $"ID: { MainId }. Name: { FirstName + ' ' + LastName }. Objective: { Objective }";
+		}
+	}
 }

@@ -18,5 +18,9 @@ namespace FrankyMaslimAPI.Models
         public int? SortOrder { get; set; }
 
         public ICollection<ProjectDescriptions> ProjectDescriptions { get; set; }
-    }
+		public override string ToString()
+		{
+			return $"ID: { ProjectId }. Name: { ProjectName }";
+		}
+	}
 }

@@ -14,5 +14,10 @@ namespace FrankyMaslimAPI.Models
         public string JobTitleName { get; set; }
 
         public ICollection<Experiences> Experiences { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return $"ID: { JobTitleId }. Job: { JobTitleName }";
+		}
+	}
 }

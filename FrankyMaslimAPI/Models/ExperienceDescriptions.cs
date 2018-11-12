@@ -11,5 +11,10 @@ namespace FrankyMaslimAPI.Models
         public string SortOrder { get; set; }
 
         public Experiences Experience { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return $"ID: { ExperienceDescriptionId }. Description: { Description }";
+		}
+	}
 }

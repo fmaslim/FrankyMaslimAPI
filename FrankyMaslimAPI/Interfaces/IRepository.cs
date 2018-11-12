@@ -9,6 +9,8 @@ namespace FrankyMaslimAPI.Interfaces
 	public interface IRepository
 	{
 		IList<Main> GetMainRecord();
-		IList<Qualifications> GetQualificiationsByMainID(int mainID);
+		IList<Qualifications> GetQualificationsByMainID(int mainID);
+
+		IList<Qualifications> GetQualifications();
 	}
 }

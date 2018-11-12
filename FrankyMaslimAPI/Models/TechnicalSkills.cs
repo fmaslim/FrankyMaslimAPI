@@ -11,5 +11,10 @@ namespace FrankyMaslimAPI.Models
         public int? SortOrder { get; set; }
 
         public TechnicalSkillCategories TechnicalSkillCategory { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return $"ID: { TechnicalSkillId }. Category: { TechnicalSkillCategory.TechnicalSkillCategoryName }. Skill: { TechnicalSkillName }";
+		}
+	}
 }

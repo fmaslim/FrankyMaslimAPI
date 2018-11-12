@@ -11,5 +11,10 @@ namespace FrankyMaslimAPI.Models
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public string Notes { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return $"ID: { EducationId }. Major: { EducationName }. College: { CollegeName }";
+		}
+	}
 }

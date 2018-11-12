@@ -11,5 +11,10 @@ namespace FrankyMaslimAPI.Models
         public int? SortOrder { get; set; }
 
         public Main Main { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return $"ID: { QualificationId }. MainID: { MainId }. Description: { Description }";
+		}
+	}
 }
