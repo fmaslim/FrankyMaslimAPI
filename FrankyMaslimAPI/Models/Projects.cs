@@ -5,10 +5,10 @@ namespace FrankyMaslimAPI.Models
 {
     public partial class Projects
     {
-        public Projects()
-        {
-            ProjectDescriptions = new HashSet<ProjectDescriptions>();
-        }
+        //public Projects()
+        //{
+        //    ProjectDescriptions = new HashSet<ProjectDescriptions>();
+        //}
 
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }

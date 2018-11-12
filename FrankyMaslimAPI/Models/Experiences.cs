@@ -5,10 +5,10 @@ namespace FrankyMaslimAPI.Models
 {
     public partial class Experiences
     {
-        public Experiences()
-        {
-            ExperienceDescriptions = new HashSet<ExperienceDescriptions>();
-        }
+        //public Experiences()
+        //{
+        //    ExperienceDescriptions = new HashSet<ExperienceDescriptions>();
+        //}
 
         public int ExperienceId { get; set; }
         public int JobTitleId { get; set; }

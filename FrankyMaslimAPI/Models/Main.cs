@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace FrankyMaslimAPI.Models
 {
     public partial class Main
     {
-        public Main()
-        {
-            Qualifications = new HashSet<Qualifications>();
-        }
+		public Main()
+		{
+			Qualifications = new HashSet<Qualifications>();
+		}
 
-        public int MainId { get; set; }
+		public int MainId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
@@ -21,6 +22,7 @@ namespace FrankyMaslimAPI.Models
         public string Email { get; set; }
         public string Objective { get; set; }
 
+		//[JsonIgnore]
         public ICollection<Qualifications> Qualifications { get; set; }
 
 		public override string ToString()

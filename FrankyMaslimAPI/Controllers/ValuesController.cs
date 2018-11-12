@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FrankyMaslimAPI.Interfaces;
 using FrankyMaslimAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -27,9 +28,13 @@ namespace FrankyMaslimAPI.Controllers
 				_repo = value;
 			}
 		}
-		public ValuesController(IRepository repo)
+
+		readonly ILogger<ValuesController> _log;
+
+		public ValuesController(IRepository repo, ILogger<ValuesController> log)
 		{
 			Repo = repo;
+			_log = log;
 		}
 
 		// GET api/values
@@ -47,12 +52,12 @@ namespace FrankyMaslimAPI.Controllers
 			try
 			{
 				var mainObject = Repo.GetMainRecord();
-				mainObject.ToList().ForEach(item => item.Qualifications = Repo.GetQualificationsByMainID(item.MainId));
-
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Main object");
 				return Ok(mainObject);
 			}
 			catch(Exception ex)
 			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
 				return BadRequest(ex.Message);
 			}
 		}
@@ -61,9 +66,154 @@ namespace FrankyMaslimAPI.Controllers
 		[HttpGet]
 		public ActionResult GetQualifications()
 		{
-			var q = Repo.GetQualifications();
+			try
+			{
+				var q = Repo.GetQualifications();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Qualifications"); ;
+				return Ok(q);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest(ex.Message);
+			}
+		}
 
-			return Ok(q);
+		[Route("api/Values/JobTitles")]
+		[HttpGet]
+		public ActionResult GetJobTitles()
+		{
+			try
+			{
+				var titles = Repo.GetJobTitles();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Job Titles");
+				return Ok(titles);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Job Titles");
+			}
+			
+		}
+
+		[Route("api/Values/Education")]
+		[HttpGet]
+		public ActionResult GetEducation()
+		{
+			try
+			{
+				var education = Repo.GetEducation();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Education");
+				return Ok(education);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Education");
+			}
+		}
+
+		[Route("api/Values/ExperienceDescriptions")]
+		[HttpGet]
+		public ActionResult GetExperienceDescriptions()
+		{
+			try
+			{
+				var descriptions = Repo.GetExperienceDescriptions();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Experience Descriptions");
+				return Ok(descriptions);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Experience Descriptions");
+			}
+		}
+
+		[Route("api/Values/Experiences")]
+		[HttpGet]
+		public ActionResult GetExperiences()
+		{
+			try
+			{
+				var experiences = Repo.GetExperiences();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Experiences");
+				return Ok(experiences);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Experiences");
+			}
+		}
+
+		[Route("api/Values/ProjectDescriptions")]
+		[HttpGet]
+		public ActionResult GetProjectDescriptions()
+		{
+			try
+			{
+				var projectDescriptions = Repo.GetProjectDescriptions();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Project Descriptions");
+				return Ok(projectDescriptions);
+			}
+			catch(Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Project Descriptions");
+			}
+		}
+
+		[Route("api/Values/Projects")]
+		[HttpGet]
+		public ActionResult GetProjects()
+		{
+			try
+			{
+				var projects = Repo.GetProjects();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Projects");
+				return Ok(projects);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Projects");
+			}
+		}
+
+		[Route("api/Values/TechnicalSkillCategories")]
+		[HttpGet]
+		public ActionResult GetTechnicalSkillCategories()
+		{
+			try
+			{
+				var categories = Repo.GetTechnicalSkillCategories();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Technical Skill Categories");
+				return Ok(categories);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Technical Skill Categories");
+			}
+		}
+
+		[Route("api/Values/TechnicalSkills")]
+		[HttpGet]
+		public ActionResult GetTechnicalSkills()
+		{
+			try
+			{
+				var skills = Repo.GetTechnicalSkills();
+				_log.LogCustomInfo(LoggingType.Information, "Successfully retrieved Technical Skills");
+				return Ok(skills);
+			}
+			catch (Exception ex)
+			{
+				_log.LogCustomInfo(LoggingType.Error, ex);
+				return BadRequest("An error occurred retrieving Technical Skills");
+			}
 		}
 
 		// GET api/values/5

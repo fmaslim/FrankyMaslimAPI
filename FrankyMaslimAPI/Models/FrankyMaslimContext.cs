@@ -185,7 +185,7 @@ namespace FrankyMaslimAPI.Models
 			//					.HasMany(q => q.Qualifications)
 			//					.WithOne(m => m.Main).IsRequired();
 
-            modelBuilder.Entity<ProjectDescriptions>(entity =>
+			modelBuilder.Entity<ProjectDescriptions>(entity =>
             {
                 entity.HasKey(e => e.ProjectDescriptionId);
 
@@ -251,7 +251,7 @@ namespace FrankyMaslimAPI.Models
 			//					.WithMany(q => q.Qualifications)
 			//					.HasForeignKey(m => m.MainId);
 
-            modelBuilder.Entity<TechnicalSkillCategories>(entity =>
+			modelBuilder.Entity<TechnicalSkillCategories>(entity =>
             {
                 entity.HasKey(e => e.TechnicalSkillCategoryId);
 
