@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 namespace FrankyMaslimAPI.Controllers
 {
 	//[Route("api/[controller]")]
+	[Route("v1")]
 	[ApiController]
 	public class ValuesController : ControllerBase
 	{
@@ -38,16 +39,16 @@ namespace FrankyMaslimAPI.Controllers
 		}
 
 		// GET api/values
-		[Route("api/Values")]
+		//[Route("api/Values")]
 		[HttpGet]
 		public ActionResult<IEnumerable<string>> Get()
 		{
 			return new string[] { "value1", "value2" };
 		}
 
-		[Route("api/Values/{id}")]
-		[HttpGet]
-		public ActionResult Get(int id)
+		//[Route("Main/{id}")]
+		[HttpGet("[action]/{id}")]
+		public ActionResult Main(int id)
 		{
 			try
 			{
@@ -62,9 +63,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/Qualifications")]
-		[HttpGet]
-		public ActionResult GetQualifications()
+		//[Route("api/Values/Qualifications")]
+		[HttpGet("[action]")]
+		public ActionResult Qualifications()
 		{
 			try
 			{
@@ -79,9 +80,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/JobTitles")]
-		[HttpGet]
-		public ActionResult GetJobTitles()
+		//[Route("api/Values/JobTitles")]
+		[HttpGet("[action]")]
+		public ActionResult JobTitles()
 		{
 			try
 			{
@@ -97,9 +98,9 @@ namespace FrankyMaslimAPI.Controllers
 			
 		}
 
-		[Route("api/Values/Education")]
-		[HttpGet]
-		public ActionResult GetEducation()
+		//[Route("api/Values/Education")]
+		[HttpGet("[action]")]
+		public ActionResult Education()
 		{
 			try
 			{
@@ -114,9 +115,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/ExperienceDescriptions")]
-		[HttpGet]
-		public ActionResult GetExperienceDescriptions()
+		//[Route("api/Values/ExperienceDescriptions")]
+		[HttpGet("[action]")]
+		public ActionResult ExperienceDescriptions()
 		{
 			try
 			{
@@ -131,9 +132,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/Experiences")]
-		[HttpGet]
-		public ActionResult GetExperiences()
+		//[Route("api/Values/Experiences")]
+		[HttpGet("[action]")]
+		public ActionResult Experiences()
 		{
 			try
 			{
@@ -148,9 +149,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/ProjectDescriptions")]
-		[HttpGet]
-		public ActionResult GetProjectDescriptions()
+		//[Route("api/Values/ProjectDescriptions")]
+		[HttpGet("[action]")]
+		public ActionResult ProjectDescriptions()
 		{
 			try
 			{
@@ -165,9 +166,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/Projects")]
-		[HttpGet]
-		public ActionResult GetProjects()
+		//[Route("api/Values/Projects")]
+		[HttpGet("[action]")]
+		public ActionResult Projects()
 		{
 			try
 			{
@@ -182,9 +183,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/TechnicalSkillCategories")]
-		[HttpGet]
-		public ActionResult GetTechnicalSkillCategories()
+		//[Route("api/Values/TechnicalSkillCategories")]
+		[HttpGet("[action]")]
+		public ActionResult TechnicalSkillCategories()
 		{
 			try
 			{
@@ -199,9 +200,9 @@ namespace FrankyMaslimAPI.Controllers
 			}
 		}
 
-		[Route("api/Values/TechnicalSkills")]
-		[HttpGet]
-		public ActionResult GetTechnicalSkills()
+		//[Route("api/Values/TechnicalSkills")]
+		[HttpGet("[action]")]
+		public ActionResult TechnicalSkills()
 		{
 			try
 			{
